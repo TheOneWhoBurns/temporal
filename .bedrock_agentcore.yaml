@@ -1,13 +1,13 @@
-default_agent: tempobook
+default_agent: agent
 agents:
   tempoWhatsapp:
     name: tempoWhatsapp
-    entrypoint: /Users/sol/Desktop/VIRTUS/Strands AI Whatsapp agent/agent.py
+    entrypoint: /home/andres-m/Virtus/temporal/agent.py
     deployment_type: direct_code_deploy
     runtime_type: PYTHON_3_11
     platform: linux/arm64
     container_runtime: null
-    source_path: /Users/sol/Desktop/VIRTUS/Strands AI Whatsapp agent
+    source_path: /home/andres-m/Virtus/temporal
     aws:
       execution_role: arn:aws:iam::980416031204:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-812a4e962b
       execution_role_auto_create: false
@@ -60,12 +60,12 @@ agents:
     is_generated_by_agentcore_create: false
   tempobook:
     name: tempobook
-    entrypoint: /Users/sol/Desktop/VIRTUS/Strands AI Whatsapp agent/agent.py
+    entrypoint: /home/andres-m/Virtus/temporal/agent.py
     deployment_type: direct_code_deploy
     runtime_type: PYTHON_3_11
     platform: linux/arm64
     container_runtime: null
-    source_path: /Users/sol/Desktop/VIRTUS/Strands AI Whatsapp agent
+    source_path: /home/andres-m/Virtus/temporal
     aws:
       execution_role: arn:aws:iam::111363583174:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-a7c919e672
       execution_role_auto_create: false
@@ -88,7 +88,7 @@ agents:
     bedrock_agentcore:
       agent_id: tempobook-ZZ2WidGgEw
       agent_arn: arn:aws:bedrock-agentcore:us-east-1:111363583174:runtime/tempobook-ZZ2WidGgEw
-      agent_session_id: null
+      agent_session_id: 53dccb88-d864-43c1-81e6-ee9273d6f55d
     codebuild:
       project_name: null
       execution_role: null
@@ -101,6 +101,64 @@ agents:
       event_expiry_days: 30
       first_invoke_memory_check_done: true
       was_created_by_toolkit: true
+    identity:
+      credential_providers: []
+      workload: null
+    aws_jwt:
+      enabled: false
+      audiences: []
+      signing_algorithm: ES384
+      issuer_url: null
+      duration_seconds: 300
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
+    api_key_env_var_name: null
+    api_key_credential_provider_name: null
+    is_generated_by_agentcore_create: false
+  agent:
+    name: agent
+    entrypoint: /home/andres-m/Virtus/temporal/agent.py
+    deployment_type: direct_code_deploy
+    runtime_type: PYTHON_3_13
+    platform: linux/arm64
+    container_runtime: null
+    source_path: /home/andres-m/Virtus/temporal
+    aws:
+      execution_role: arn:aws:iam::111363583174:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-d4f0bc5a29
+      execution_role_auto_create: false
+      account: '111363583174'
+      region: us-east-1
+      ecr_repository: null
+      ecr_auto_create: false
+      s3_path: s3://bedrock-agentcore-codebuild-sources-111363583174-us-east-1
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: null
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: agent-lTjba1EiAF
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:111363583174:runtime/agent-lTjba1EiAF
+      agent_session_id: null
+    codebuild:
+      project_name: null
+      execution_role: null
+      source_bucket: null
+    memory:
+      mode: STM_ONLY
+      memory_id: agent_mem-axOJyJAYb2
+      memory_arn: arn:aws:bedrock-agentcore:us-east-1:111363583174:memory/agent_mem-axOJyJAYb2
+      memory_name: agent_mem
+      event_expiry_days: 30
+      first_invoke_memory_check_done: true
+      was_created_by_toolkit: false
     identity:
       credential_providers: []
       workload: null
