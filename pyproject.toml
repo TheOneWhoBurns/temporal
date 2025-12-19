@@ -1,0 +1,13 @@
+[project]
+name = "strands-ai-whatsapp-agent"
+version = "0.1.0"
+description = "WhatsApp booking agent using AWS Bedrock AgentCore and Strands Agents"
+requires-python = ">=3.11"
+dependencies = [
+    "bedrock-agentcore",
+    "bedrock-agentcore-starter-toolkit",
+    "strands-agents",
+    "requests",
+    "boto3",
+    "pyyaml",
+]

@@ -1,0 +1,111 @@
+[
+  {
+    "name": "getServices",
+      "description": "Obtiene todos los servicios disponibles para reservar con detalles, duración y precios",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "getEstablishmentsByServices",
+      "description": "Encuentra establecimientos que ofrecen servicios específicos",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "service_ids": {
+            "type": "string",
+            "description": "IDs de servicios separados por comas (ej: '6944211deb76a386e5d4370f,69442129eb76a386e5d4371f')"
+          }
+        },
+        "required": ["service_ids"]
+      }
+    },
+    {
+      "name": "getAvailableTimes",
+      "description": "Obtiene las horas disponibles para reservar en una fecha específica",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "Fecha en formato ISO 8601 (ej: '2025-12-19T05:00:00.000Z')"
+          },
+          "establishment_id": {
+            "type": "string",
+            "description": "ID del establecimiento"
+          },
+          "service_ids": {
+            "type": "string",
+            "description": "IDs de servicios separados por comas"
+          },
+          "total_duration": {
+            "type": "integer",
+            "description": "Duración total en minutos de todos los servicios combinados"
+          }
+        },
+        "required": ["date", "establishment_id", "service_ids", "total_duration"]
+      }
+    },
+    {
+      "name": "createBooking",
+      "description": "Crea una nueva reserva con información del cliente, servicios y horario",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customer_name": {
+            "type": "string",
+            "description": "Nombre del cliente"
+          },
+          "customer_last_name": {
+            "type": "string",
+            "description": "Apellido del cliente"
+          },
+          "customer_email": {
+            "type": "string",
+            "description": "Email del cliente"
+          },
+          "customer_phone": {
+            "type": "string",
+            "description": "Número de teléfono del cliente"
+          },
+          "customer_phone_code": {
+            "type": "string",
+            "description": "Código de país del teléfono (ej: '+593')"
+          },
+          "service_ids": {
+            "type": "string",
+            "description": "IDs de servicios separados por comas"
+          },
+          "establishment_id": {
+            "type": "string",
+            "description": "ID del establecimiento"
+          },
+          "date": {
+            "type": "string",
+            "description": "Fecha en formato ISO 8601"
+          },
+          "time": {
+            "type": "string",
+            "description": "Hora de la cita (ej: '10:30')"
+          },
+          "total_duration": {
+            "type": "integer",
+            "description": "Duración total en minutos"
+          }
+        },
+        "required": [
+          "customer_name",
+          "customer_last_name",
+          "customer_email",
+          "customer_phone",
+          "customer_phone_code",
+          "service_ids",
+          "establishment_id",
+          "date",
+          "time",
+          "total_duration"
+        ]
+      }
+    }
+]
